@@ -28,7 +28,7 @@ class WorldInfo extends React.Component {
     } else {
       return (
         <div className="ui container">
-          <h2>Globally:</h2>
+          <h2 className="ui huge header">Globally:</h2>
           <div className="ui segment">
             <h3 className="header" style={{ color: "orange" }}>
               Infected:
@@ -47,6 +47,7 @@ class WorldInfo extends React.Component {
             </h3>
             {this.state.cured}
           </div>
+          <div class="ui section divider"></div>
         </div>
       );
     }

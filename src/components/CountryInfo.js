@@ -72,13 +72,13 @@ class CountryInfo extends React.Component {
     return (
       <div>
         <div className="ui segment">
-          <h3 className="header" style={{ color: "orange" }}>
+          <h3 className="ui header" style={{ color: "orange" }}>
             Infected:
           </h3>
           {this.state.infected}
         </div>
         <div className="ui segment">
-          <h3 className="header" style={{ color: "red" }}>
+          <h3 className="ui header" style={{ color: "red" }}>
             Dead:
           </h3>
           {this.state.dead}
@@ -97,8 +97,6 @@ class CountryInfo extends React.Component {
     return (
       <div>
         {this.state.infected == null ? this.renderLoading() : this.renderInfo()}
-        <br />
-        <br />
       </div>
     );
   }

@@ -24,8 +24,6 @@ class CurrentCountry extends React.Component {
       return (
         <div>
           <h3>Error: {this.state.errorMessage}</h3>
-          <br />
-          <br />
         </div>
       );
     } else if (!this.state.errorMessage && this.state.lat) {
@@ -38,8 +36,9 @@ class CurrentCountry extends React.Component {
   render() {
     return (
       <div>
-        <h2>According to your Location:</h2>
+        <h2 className="ui huge header">According to your Location:</h2>
         {this.renderContent()}
+        <div class="ui section divider"></div>
       </div>
     );
   }
