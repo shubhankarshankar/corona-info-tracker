@@ -72,7 +72,7 @@ export default class Guidelines extends React.Component {
             people in your area should be doing to protect themselves.
           </div>
         </div>
-        <div class="ui section divider"></div>
+        <div className="ui section divider"></div>
       </div>
     );
   }

@@ -10,7 +10,8 @@ class SearchBar extends React.Component {
   onFormSubmit = event => {
     event.preventDefault();
 
-    this.props.onCapitalSubmit(this.state.input);
+    this.props.onSearchSubmit(this.state.input);
+    console.log(this.state.input);
   };
 
   render() {
@@ -18,9 +19,9 @@ class SearchBar extends React.Component {
       <div className="ui segment">
         <form onSubmit={this.onFormSubmit} className="ui form">
           <div className="field">
-            <label>Search By Capital of the Country</label>
+            <label>Search By Country</label>
             <input
-              placeholder="Enter Capital"
+              placeholder="Enter Country"
               type="text"
               value={this.state.input}
               onChange={this.onInputChange}

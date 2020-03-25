@@ -5,17 +5,26 @@ class WorldInfo extends React.Component {
   state = {
     infected: 0,
     dead: 0,
-    cured: 0
+    cured: 0,
+    err: ""
   };
 
-  showLatest = async () => {
-    const Response = await coronavirustracker.get("/latest");
-
-    this.setState({
-      infected: Response.data.latest.confirmed,
-      dead: Response.data.latest.deaths,
-      cured: Response.data.latest.recovered
-    });
+  showLatest = () => {
+    coronavirustracker
+      .get("/latest")
+      .then(Response => {
+        this.setState({
+          infected: Response.data.latest.confirmed,
+          dead: Response.data.latest.deaths,
+          cured: Response.data.latest.recovered
+        });
+      })
+      .catch(err => {
+        this.setState({
+          err
+        });
+        console.log(err);
+      });
   };
 
   componentDidMount = () => {
@@ -23,7 +32,7 @@ class WorldInfo extends React.Component {
   };
 
   render() {
-    if (!this.state.dead) {
+    if (!this.state.infected) {
       return <div>Loading...</div>;
     } else {
       return (
@@ -47,7 +56,7 @@ class WorldInfo extends React.Component {
             </h3>
             {this.state.cured}
           </div>
-          <div class="ui section divider"></div>
+          <div className="ui section divider"></div>
         </div>
       );
     }

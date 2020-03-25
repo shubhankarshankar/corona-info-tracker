@@ -38,7 +38,7 @@ class CurrentCountry extends React.Component {
       <div>
         <h2 className="ui huge header">According to your Location:</h2>
         {this.renderContent()}
-        <div class="ui section divider"></div>
+        <div className="ui section divider"></div>
       </div>
     );
   }
