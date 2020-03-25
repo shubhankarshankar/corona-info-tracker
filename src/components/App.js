@@ -2,6 +2,7 @@ import React from "react";
 import SearchBar from "./SearchBar";
 import WorldInfo from "./WorldInfo";
 import CurrentCountry from "./CurrentCountry";
+import Guidelines from "./Guidelines";
 import getCountryId from "../apis/getCountryId";
 import CountryInfo from "./CountryInfo";
 
@@ -34,12 +35,16 @@ class App extends React.Component {
           <div></div>
         ) : (
           <div>
-            <h3>Country: {this.state.countryName}</h3>
+            <h3 className="ui huge header">
+              Country: {this.state.countryName}
+            </h3>
             <CountryInfo lat={this.state.lat} lng={this.state.lng} />
+            <div class="ui section divider"></div>
           </div>
         )}
         <CurrentCountry />
         <WorldInfo />
+        <Guidelines />
       </div>
     );
   }
