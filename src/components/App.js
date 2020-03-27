@@ -7,6 +7,7 @@ import covid19 from "../apis/covid-19";
 
 class App extends React.Component {
   state = {
+    err: "",
     country: "",
     confirmed: null,
     active: null,
@@ -14,20 +15,28 @@ class App extends React.Component {
     dead: null
   };
 
-  onSearchSubmit = async country => {
-    const resp = await covid19.get("/statistics", {
-      params: {
-        country
-      }
-    });
-
-    this.setState({
-      confirmed: resp.data.response[0].cases.total,
-      active: resp.data.response[0].cases.active,
-      cured: resp.data.response[0].cases.recovered,
-      country: resp.data.response[0].country,
-      dead: resp.data.response[0].deaths.total
-    });
+  onSearchSubmit = country => {
+    covid19
+      .get("/statistics", {
+        params: {
+          country
+        }
+      })
+      .then(resp => {
+        this.setState({
+          confirmed: resp.data.response[0].cases.total,
+          active: resp.data.response[0].cases.active,
+          cured: resp.data.response[0].cases.recovered,
+          country: resp.data.response[0].country,
+          dead: resp.data.response[0].deaths.total
+        });
+      })
+      .catch(err => {
+        this.setState({
+          err:
+            "Couldn't Find Country. Try UK for united kingdom, USA for america or UAE for united arab emirates"
+        });
+      });
   };
 
   renderSearch() {

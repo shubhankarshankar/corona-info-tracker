@@ -23,7 +23,6 @@ class WorldInfo extends React.Component {
         this.setState({
           err
         });
-        console.log(err);
       });
   };
 
