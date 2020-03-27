@@ -1,7 +1,6 @@
 import React from "react";
 import SearchBar from "./SearchBar";
 import WorldInfo from "./WorldInfo";
-import CurrentCountry from "./CurrentCountry";
 import Guidelines from "./Guidelines";
 import covid19 from "../apis/covid-19";
 
@@ -77,7 +76,6 @@ class App extends React.Component {
       <div className="ui container" style={{ marginTop: "20px" }}>
         <SearchBar onSearchSubmit={this.onSearchSubmit} />
         {this.state.country === "" ? <div></div> : this.renderSearch()}
-        <CurrentCountry />
         <WorldInfo />
         <Guidelines />
       </div>

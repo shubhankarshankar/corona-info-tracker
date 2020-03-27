@@ -1,5 +1,5 @@
 import React from "react";
-import coronavirustracker from "../apis/coronavirus-tracker";
+import coronaWorldStats from "../apis/coronaWorldStats";
 
 class WorldInfo extends React.Component {
   state = {
@@ -10,13 +10,13 @@ class WorldInfo extends React.Component {
   };
 
   showLatest = () => {
-    coronavirustracker
-      .get("/latest")
+    coronaWorldStats
+      .get()
       .then(Response => {
         this.setState({
-          infected: Response.data.latest.confirmed,
-          dead: Response.data.latest.deaths,
-          cured: Response.data.latest.recovered
+          infected: Response.data.total_cases,
+          dead: Response.data.total_deaths,
+          cured: Response.data.total_recovered
         });
       })
       .catch(err => {
