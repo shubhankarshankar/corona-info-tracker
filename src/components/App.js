@@ -27,7 +27,8 @@ class App extends React.Component {
           active: resp.data.response[0].cases.active,
           cured: resp.data.response[0].cases.recovered,
           country: resp.data.response[0].country,
-          dead: resp.data.response[0].deaths.total
+          dead: resp.data.response[0].deaths.total,
+          err: ""
         });
       })
       .catch(err => {
@@ -76,6 +77,14 @@ class App extends React.Component {
       <div className="ui container" style={{ marginTop: "20px" }}>
         <SearchBar onSearchSubmit={this.onSearchSubmit} />
         {this.state.country === "" ? <div></div> : this.renderSearch()}
+        {this.state.err ? (
+          <div>
+            <div>Error: {this.state.err}</div>
+            <div className="ui section divider"></div>
+          </div>
+        ) : (
+          <div></div>
+        )}
         <WorldInfo />
         <Guidelines />
       </div>

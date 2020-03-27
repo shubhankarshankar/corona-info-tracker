@@ -11,9 +11,7 @@ class SearchBar extends React.Component {
     event.preventDefault();
 
     this.state.input === ""
-      ? this.setState({
-          input: ""
-        })
+      ? this.setState({ input: "" })
       : this.props.onSearchSubmit(this.state.input);
   };
 
