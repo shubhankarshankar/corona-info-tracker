@@ -1,6 +1,6 @@
 # Novel Coronavirus (COVID-19) Tracker
 
-This project aims to simply fetch data from another API ([COVID-19 API](https://github.com/ExpDev07/coronavirus-tracker-api)) and display the latest global statistics for the spread of the virus.
+This project fetchs data from another API ([COVID-19 API](https://github.com/ExpDev07/coronavirus-tracker-api)) and display the latest global statistics for the spread of the virus.
 
 This further gets user's location and displays the spread statistics for the user's current location.
 
