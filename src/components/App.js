@@ -34,7 +34,7 @@ class App extends React.Component {
       .catch(err => {
         this.setState({
           err:
-            "Couldn't Find Country. Try UK for united kingdom, USA for america or UAE for united arab emirates"
+            "Couldn't Find Country. Try hyphen between words for country with two words. Try UK for united kingdom, USA for america or UAE for united arab emirates"
         });
       });
   };
