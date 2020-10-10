@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "../img/logo 2.png";
 
 class SearchBar extends React.Component {
 	state = { input: "" };
@@ -19,7 +18,6 @@ class SearchBar extends React.Component {
 	render() {
 		return (
 			<div className="ui segment search-wrapper">
-				<img className="ui centered image" src={logo} alt="logo" />
 				<form onSubmit={this.onFormSubmit} className="ui form">
 					<div className="field">
 						<label>Search By Country</label>
